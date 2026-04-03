@@ -22,6 +22,10 @@ resource "aws_subnet" "public" {
     Name = "public-subnet"
   }
 }
+resource "aws_key_pair" "deployer" {
+  key_name   = "deployer-key"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
@@ -105,6 +109,9 @@ resource "aws_instance" "web" {
   subnet_id                   = aws_subnet.public.id
   vpc_security_group_ids      = [aws_security_group.web_sg.id]
   associate_public_ip_address = true
+
+  key_name = aws_key_pair.deployer.key_name
+ 
 
   iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
 
