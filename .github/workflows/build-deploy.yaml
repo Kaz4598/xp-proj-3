@@ -10,7 +10,7 @@ on:
 env:
   AWS_REGION: "eu-west-2"
   AWS_EC2: "flask-app"
-  ECR_REPO: "docker-flask"
+  ECR_REPO: "my-docker-repo"
   GIT_SHA: ${{ github.sha }}
  
 jobs:
