@@ -8,7 +8,7 @@ on:
 
 env:
   AWS_REGION: "eu-west-2"
-  AWS_EC2: "flask-app"
+  AWS_EC2: "docker-ec2"
   ECR_REPO: "my-docker-repo"
 
 jobs:
@@ -76,7 +76,7 @@ jobs:
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ steps.get_ip.outputs.ip }}
-          username: ubuntu
+          username: ec2-user
           key: ${{ secrets.SSH_KEY }}
           port: 22
           debug: true
