@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 
-# VPC vss
+# VPC vsss
 
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
