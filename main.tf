@@ -55,7 +55,7 @@ resource "aws_route_table_association" "public_assoc" {
 }
 
 
-# IAM Role for EC2 → ECR
+# IAM Role for EC2 → ECR r
 
 resource "aws_iam_role" "ec2_role" {
   name = "ec2-ecr-role"
