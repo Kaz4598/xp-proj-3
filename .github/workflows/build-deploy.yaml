@@ -75,7 +75,7 @@ jobs:
       - name: SSH & Deploy Docker Container
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.EC2_HOST }}
+          host: ${{ steps.get_ip.outputs.ip }}
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
